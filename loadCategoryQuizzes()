@@ -1,0 +1,14 @@
+function loadDeletedQuizzes() {
+    let deletedQuizzes = JSON.parse(localStorage.getItem("deletedQuizzes")) || [];
+    let deletedQuizList = document.getElementById("deleted-quiz-list");
+    deletedQuizList.innerHTML = "";
+
+    deletedQuizzes.forEach((quiz, index) => {
+        let div = document.createElement("div");
+        div.innerHTML = `
+            <p>${quiz.title} (${quiz.category})</p>
+            <button onclick="restoreQuiz('${quiz.title}', '${quiz.category}')">♻️ Restore</button>
+        `;
+        deletedQuizList.appendChild(div);
+    });
+}
