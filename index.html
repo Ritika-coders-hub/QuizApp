@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz Maker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🎓 Online Quiz Maker</h1>
+    </header>
+
+    <div class="container">
+        <!-- Quiz Creation Section -->
+        <div class="card">
+            <h2>Create a Quiz</h2>
+            <input type="text" id="quiz-title" placeholder="Enter Quiz Title">
+            
+            <!-- Quiz Category Selection -->
+            <select id="quiz-category">
+                <option value="General">General</option>
+                <option value="Science">Science</option>
+                <option value="Math">Math</option>
+                <option value="History">History</option>
+            </select>
+
+            <div id="questions-container"></div>
+            <button onclick="addQuestion()">➕ Add Question</button>
+            <button onclick="saveQuiz()">💾 Save Quiz</button>
+        </div>
+
+        <!-- Quiz Selection Section -->
+        <div class="card">
+            <h2>Choose a Quiz</h2>
+            <select id="category-select" onchange="loadCategoryQuizzes()">
+                <option value="">-- Select Category --</option>
+                <option value="General">General</option>
+                <option value="Science">Science</option>
+                <option value="Math">Math</option>
+                <option value="History">History</option>
+            </select>
+            <div id="quiz-list"></div>
+        </div>
+        <button onclick="clearAllQuizzes()">🗑️ Delete All Quizzes</button>
+
+        <!-- Quiz Attempt Section -->
+        <div class="card" id="quiz-attempt" style="display:none;">
+            <h2 id="quiz-title-display"></h2>
+            <p id="timer"></p>
+            <div id="quiz-questions"></div>
+            <button onclick="submitQuiz()">✅ Submit Quiz</button>
+            <p id="quiz-score"></p>
+        </div>
+
+        <!-- Leaderboard Section -->
+        <div class="card">
+            <h2>🏆 Leaderboard</h2>
+            <div id="leaderboard-list"></div>
+        </div>
+        
+        
+        
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
